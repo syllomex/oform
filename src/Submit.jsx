@@ -48,7 +48,7 @@ function Submit({ children, ...props }) {
     const { ...files } = props.data
 
     return (
-        <button type="submit" {...props}
+        <button type="submit" className={props.className || "btn btn-primary"} {...props}
             onClick={() => handleSubmit({ fields, setData, ...files })}>
             {children}
         </button>
