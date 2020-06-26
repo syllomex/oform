@@ -12,17 +12,32 @@ npm install --save oform
 
 ## Usage
 
+Use Bootstrap for default stylizing.
+
 ```jsx
 import React, { Component } from 'react'
 
 import MyComponent from 'oform'
 import 'oform/dist/index.css'
 
-class Example extends Component {
-  render() {
-    return <MyComponent />
-  }
+export function ExampleComponent() {
+  const [data, setData] = useState(null)
+
+  useEffect(() => {
+    console.log(data)
+  }, [data])
+  return (
+    <div>
+      <Form>
+        <Label text='Email: '>
+          <Input name='email' type='email' required />
+        </Label>
+        <Submit data={{ data, setData }}>Enviar</Submit>
+      </Form>
+    </div>
+  )
 }
+
 ```
 
 ## License
